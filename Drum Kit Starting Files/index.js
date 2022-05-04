@@ -1,4 +1,4 @@
-//Detecting button press
+	//Detecting button press
 
 var i = 0;
 while ( i < document.querySelectorAll(".drum").length)
