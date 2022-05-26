@@ -12,6 +12,14 @@
 			<li>Coding</li>
 			<li>Scripting</li>
 			<li>gaming</li>
+			<!--			<li><%= listItem %></li> -->
+
+			<% var i = 0; %>
+			<%  while (i <listItem.length){ %>	
+			<li> <%= listItem[i] %> </li>
+			<% i++;} %>
+
+			<br>
 			<form action="/" method="post">
 				<input type="text" placeholder="Text" name="item">
 				<button type="submit">Submit</button>

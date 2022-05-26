@@ -4,6 +4,7 @@ const { name } = require("ejs");
 
 const app = express();
 
+var items = [];
 app.set('view engine','ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -12,7 +13,6 @@ app.get("/", (req, res) =>
 	{
 		var today = new Date();
 		var day = ['Sunday','Monday','Tuesday','Wednesday','Thurday','Friday','Saturday'];
-		var dayName = day[today.getDay()];
 		var options = 
 			{
 				weekday: "long",
@@ -20,21 +20,17 @@ app.get("/", (req, res) =>
 				month: "long"
 			}
 		var date = today.toLocaleDateString("en-US", options)
-		if (today.getDay() == 6 || today.getDay() == 0)
-		{
-			day = date;
-		}
-		else
-		{
-			day = date;
-		}
-			res.render('list', {day: date});
+		day = date;
+	
+		res.render('list', {day: date, listItem: items});
+
 	})
 
 app.post("/", (req, res) => 
 	{
 		var item = req.body.item;
-		console.log(item);
+		items.push(item);	
+		res.redirect("/");
 	})
 
 app.listen(3000, () => 
