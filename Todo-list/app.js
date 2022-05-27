@@ -5,9 +5,12 @@ const { name } = require("ejs");
 const app = express();
 
 var items = [];
+var workItem = [];
+
 app.set('view engine','ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 
 app.get("/", (req, res) =>
 	{
@@ -22,7 +25,7 @@ app.get("/", (req, res) =>
 		var date = today.toLocaleDateString("en-US", options)
 		day = date;
 	
-		res.render('list', {day: date, listItem: items});
+		res.render('list', {listTitle: date, listItem: items});
 
 	})
 
