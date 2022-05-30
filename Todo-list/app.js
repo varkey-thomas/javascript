@@ -29,12 +29,26 @@ app.get("/", (req, res) =>
 
 	})
 
+app.get("/work", (req, res) =>
+	{
+		res.render("list", {listTitle: "Work List", listItem: workItem});
+	})
+
 app.post("/", (req, res) => 
 	{
 		var item = req.body.item;
-		items.push(item);	
-		res.redirect("/");
+		if ( req.body.list === "Work")
+		{
+			workItem.push(item);	
+			res.redirect("/work");
+		}
+		else
+		{
+			items.push(item);
+			res.redirect("/");
+		}
 	})
+
 
 app.listen(3000, () => 
 	{
