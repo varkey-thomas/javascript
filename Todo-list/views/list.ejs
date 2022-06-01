@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title></title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="css/styles.css" rel="stylesheet">
-	</head>
-	<body>
+<%- include('head'); -%>
+
 		<div class="box" id="heading">
 			<h1> <%= listTitle %> </h1>
 		</div>
@@ -24,5 +17,4 @@
 				<button type="submit" name="list" value=<%= listTitle%>>+</button>
 			</form>
 		<div>
-	</body>
-</html>
+<%- include('foot'); -%>
